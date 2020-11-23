@@ -1,5 +1,7 @@
 <template>
   <div class="modal-container" @click.self="close" :class="!showModal ? 'hidden' : null">
+    <img @click="close" class="close-icon" src="../assets/cancel.svg" alt="close icon">
+
     <transition name="fade">
       <div v-if="showModal"
       class="modal" :style="{backgroundImage: `url(${selectedImage.urls.full})`}">
@@ -38,6 +40,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.close-icon {
+  position: absolute;
+  top: 1.2rem;
+  width: 3rem;
+  right: 4rem;
+  cursor: pointer;
+}
 .modal {
   width: 80%;
   height: 85vh;
@@ -108,6 +117,10 @@ export default {
 @media (max-width: 480px) {
   .modal {
     width: 94%
+  }
+  .close-icon {
+    top: .1rem;
+    right: 1rem;
   }
 }
 </style>

@@ -65,6 +65,11 @@ export default {
   span {
     color: #9CA3AF
   }
+
+  h1 {
+    text-align: left;
+    width: 70%
+  }
 }
 
 .input-container {

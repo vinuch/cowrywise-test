@@ -87,6 +87,14 @@ export default {
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
+
+  svg {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    width: 100%
+  }
 }
 
 .card:nth-child(2) {
