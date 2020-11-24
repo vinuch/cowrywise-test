@@ -4,7 +4,7 @@
 
     <transition name="fade">
       <div v-if="showModal"
-      class="modal" :style="{backgroundImage: `url(${selectedImage.urls.full})`}">
+      class="modal" :style="{backgroundImage: `url(${selectedImage.urls.regular})`}">
         <!-- {{selectedImage}} -->
         <div class="modalImage">
           <div class="modalMeta">

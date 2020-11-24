@@ -4,6 +4,7 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
+
 export default new Vuex.Store({
   state: {
     homeImages: null,
@@ -34,7 +35,7 @@ export default new Vuex.Store({
     getLatestAfricanPhotos({ commit }) {
       commit('SET_SHOWING_RESULT', false);
       commit('SET_LOADING', true);
-      axios.get('https://api.unsplash.com/search/photos/?page=1&per_page=9&query=african&client_id=vCFLmJ0o24YUgY759zqXUQX0IR3e1JnSCODoWyjXzEA')
+      axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=9&query=african&client_id=${process.env.VUE_APP_UNSPLASH_API_KEY}`)
         .then((response) => {
           console.log(response.data.results);
           commit('SET_HOME_IMAGES', response.data.results);
@@ -44,7 +45,7 @@ export default new Vuex.Store({
     searchPhotos({ commit }, searchTerm) {
       commit('SET_LOADING', true);
       commit('SET_SEARCHING', true);
-      axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=9&query=${searchTerm}&client_id=vCFLmJ0o24YUgY759zqXUQX0IR3e1JnSCODoWyjXzEA`)
+      axios.get(`https://api.unsplash.com/search/photos/?page=1&per_page=9&query=${searchTerm}&client_id=${process.env.VUE_APP_UNSPLASH_API_KEY}`)
         .then((response) => {
           console.log(response);
 

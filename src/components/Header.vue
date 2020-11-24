@@ -1,5 +1,6 @@
 <template>
   <div class="header">
+    <button v-if="searching || showingResult" class="back-btn"><a href="/"><img src="../assets/back.svg" alt=""></a> </button>
     <h1 v-if="searching">Searching for <span>"{{ searchQueryString }}"</span></h1>
     <h1 v-else-if="showingResult">Search Results for <span>{{ searchQueryString }}</span></h1>
     <div v-else class="input-container">
@@ -62,27 +63,62 @@ export default {
   justify-content: center;
   align-items: center;
 
-  span {
-    color: #9CA3AF
+  .back-btn {
+    background-color: #2c3e50;
+    border-radius: .3rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    top: 3rem;
+    left: 5rem;
+
+    img {
+      width: 2rem;
+      margin: 0 .9rem;
+    }
   }
 
   h1 {
-    text-align: left;
-    width: 70%
+  text-align: left;
+  width: 70%;
+
+  span {
+    color: #94a7b6
   }
 }
 
-.input-container {
-  width: 100%;
-  position: relative;
+    .input-container {
+    width: 100%;
+    position: relative;
+
+    .search-bar {
+      padding: 1.2rem 0 1.2rem 3rem;
+      width: 75%;
+      font-size: 20px;
+      border-radius: 0.5rem;
+      border: none;
+    }
+  }
 }
 
-.search-bar {
-  padding: 1.2rem 0 1.2rem 3rem;
-  width: 75%;
-  font-size: 20px;
-  border-radius: 0.5rem;
-  border: none;
+
+
+@media (max-width: 480px) {
+  .header {
+    h1 {
+      text-align: left;
+      width: 100%;
+      padding: 0 2rem;
+    }
+
+    .back-btn {
+      left: 1rem;
+    }
+  }
 }
 
 </style>
